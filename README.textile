@@ -66,3 +66,5 @@ When a field is focussed, its label is animated to this opacity. Defaults to 0.5
 *<code>fadeDuration:</code> Time in milliseconds*
 When an animation occurs, it uses this setting to determine duration. Defaults to 300
 
+*<code>labelClass:</code> String to be used as class*
+Class to be applied to the label when it is positioned over form field. Defaults to infield

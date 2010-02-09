@@ -18,10 +18,10 @@
         
         // Access to jQuery and DOM versions of each element
         base.$label = $(label);
-        base.label = label;
+        //base.label = label;
 
  		base.$field = $(field);
-		base.field = field;
+		//base.field = field;
         
 		base.$label.data("InFieldLabels", base);
 		base.showing = true;
@@ -29,6 +29,13 @@
         base.init = function(){
 			// Merge supplied options with default options
             base.options = $.extend({},$.InFieldLabels.defaultOptions, options);
+            
+            base.$label.css('position','absolute');
+            var fieldPosition = base.$field.position();
+            base.$label.css({
+                'left' : fieldPosition.left,
+                'top' : fieldPosition.top
+            }).addClass(base.options.labelClass);
 
 			// Check if the field is already filled in
 			if(base.$field.val() != ""){
@@ -110,7 +117,8 @@
 	
     $.InFieldLabels.defaultOptions = {
         fadeOpacity: 0.5, // Once a field has focus, how transparent should the label be
-		fadeDuration: 300 // How long should it take to animate from 1.0 opacity to the fadeOpacity
+		fadeDuration: 300, // How long should it take to animate from 1.0 opacity to the fadeOpacity
+		labelClass: 'infield' // Class to be applied to label when positioned over form field
     };
 	
 
