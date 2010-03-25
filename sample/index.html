@@ -26,7 +26,7 @@
 	<h1>In-Field Labels jQuery Plugin</h1>
 	<div id="header">
 		<p><strong>License:</strong> <a href="http://docs.jquery.com/License">Same as jQuery (Dual GPL + MIT)</a></p>
-			<p><strong>Author:</strong> <a href="http://pixelgraphics.us/company/">Doug Neiner</a></p>
+			<p><strong>Author:</strong> <a href="http://pixelgraphics.us/company/">Doug Neiner</a> (This version modified by <a href="http://trevordavis.net/">Trevor Davis</a>)</p>
 			<p><strong>Download:</strong> <a href="http://fuelyourcoding.com/scripts/infield/InFieldLabels.zip">InFieldLabels.zip</a></p>
 			<p><strong>Source:</strong> <a href="http://github.com/dcneiner/In-Field-Labels-jQuery-Plugin/">GitHub</a></p>
 			<p><strong>Size:</strong> Under 1KB Minified and gzipped</p>
@@ -88,10 +88,9 @@
 &lt;/p&gt;</pre>
 		</p>
 		<p><strong>CSS</strong>:<br />
-			More CSS is needed to position the label nicely over the input or text area element, but since it all depends on how you have styled those elements, only the bare-bones are listed here. Keep in mind any block element can surround the label and input field. <strong>&lt;p&gt;</strong> is used as an example.
+			More CSS is needed to position the label nicely over the input or text area element, but since it all depends on how you have styled those elements, only the bare-bones are listed here. Keep in mind any block element can surround the label and input field. <strong>&lt;p&gt;</strong> is used as an example. <strong>As of this version, you no longer have to position the label in the CSS, it is added via JS.</strong>
 		<pre>
-form p { position:relative }
-label  { position:absolute; top:0; left:0}</pre>	
+form p { position:relative }</pre>	
 		</p>
 		<p><strong>Javascript</strong>:<br />
 		<pre>
@@ -112,6 +111,7 @@ $("label").inFieldLabels({ optionName:value });</pre>
 			</p>
 		<p><tt>fadeOpacity:</tt> <strong>Value between 0.1 and 1.0.</strong><br />When a field is focussed, its label is animated to this opacity. Defaults to 0.5</p>
 		<p><tt>fadeDuration:</tt> <strong>Time in milliseconds</strong><br />When an animation occurs, it uses this setting to determine duration. Defaults to 300</p>
+		<p><tt>labelClass:</tt> <strong>String to be used as class</strong><br />Class to be applied to the label when it is positioned over form field. Defaults to infield</p>
 		<h2>Changelog</h2>
 		<p><strong>Version 0.1</strong></p>
 		<ul>
