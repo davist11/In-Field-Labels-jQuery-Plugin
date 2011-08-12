@@ -55,6 +55,8 @@
 				base.checkForEmpty();
 			}).bind('onPropertyChange', function(){
 				base.checkForEmpty();
+			}).bind('keyup', function() {
+			    base.checkForEmpty();
 			});
         };
 
