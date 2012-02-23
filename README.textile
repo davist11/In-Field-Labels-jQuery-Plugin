@@ -26,7 +26,7 @@ h3. HTML
 
 <pre>
 <p>
-  <label for="field_id">Label Text</label><br />
+  <label for="field_id">Label Text</label>
   <input type="text" name="field_id" value="" id="field_id">
 </p>
 </pre>
@@ -37,7 +37,7 @@ More CSS is needed to position the label nicely over the input or text area elem
 
 <pre>
 form p { position:relative }
-label  { position:absolute; top:0; left:0; cursor:text }
+label  { position:absolute; top:0; left:0; cursor:text; line-height:0; }
 </pre>
 
 h3. Javascript
