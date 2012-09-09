@@ -13,7 +13,7 @@ This is a simple plugin that turns properly formatted HTML forms into forms with
 
 This fork adds:
 An object parameter to position the label: <code>{ position : {'left' : 0, 'top' : 0} }</code>
-More HTML5 selectors instead of just <code>type["text"]</code> and <code>textarea</code>. See src/jquery.infieldlabel.js for a list of supported input types.
+More HTML5 selectors instead of just <code>type["text"]</code> and <code>textarea</code>. See src/jquery.infieldlabel.js:https://github.com/btaylordesign/In-Field-Labels-jQuery-Plugin/blob/master/src/jquery.infieldlabel.js for a list of supported input types.
 
 h2. Browser Support
 
