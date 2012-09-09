@@ -11,6 +11,10 @@ h2. Overview
 
 This is a simple plugin that turns properly formatted HTML forms into forms with in-field label support. Labels fade when the field is focussed and disappear when text entry begins. Clearing a field and leaving brings back the label.
 
+This fork adds:
+An object parameter to position the label: <code>{ position : {'left' : 0, 'top' : 0} }</code>
+More HTML5 selectors instead of just <code>type["text"]</code> and <code>textarea</code>. See src/jquery.infieldlabel.js for a list of supported input types.
+
 h2. Browser Support
 
 IE6+, WebKit Browsers (Safari, Chrome), Firefox 2+
