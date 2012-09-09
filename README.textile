@@ -3,6 +3,7 @@ h1. In-Field Labels jQuery Plugin
 *License:* "Same as jQuery (Dual GPL + MIT)":http://docs.jquery.com/License
 
 *Author:* "Doug Neiner":http://pixelgraphics.us/company
+*Modified By:* "Brandon Taylor":http://btaylorweb.com/
 
 *Size:* Under 1KB Minified and gzipped
 
@@ -50,7 +51,7 @@ $(document).ready(function(){
 
 h2. Options
 
-Two options can be passed along with the method or set ahead of time for all inFieldLabel controls.
+Four options can be passed along with the method or set ahead of time for all inFieldLabel controls.
 
 To set them ahead of time, use the following syntax:
 
@@ -68,3 +69,6 @@ When an animation occurs, it uses this setting to determine duration. Defaults t
 
 *<code>labelClass:</code> String to be used as class*
 Class to be applied to the label when it is positioned over form field. Defaults to infield
+
+*<code>labelPosition:</code> Object to position label within field. Defaults to {position : {'left' : 0, 'top' : 0}}*
+Absolute position to be applied to the label as an inline style.
