@@ -3,11 +3,12 @@
  * http://fuelyourcoding.com/scripts/infield.html
  *
  * Copyright (c) 2009 Doug Neiner
+ * Modified 09/08/2012 by Brandon Taylor
  * Dual licensed under the MIT and GPL licenses.
  * Uses the same license as jQuery, see:
  * http://docs.jquery.com/License
  *
- * @version 0.1
+ * @version 0.2
  */
 (function($){
 	
@@ -29,12 +30,11 @@
         base.init = function(){
 			// Merge supplied options with default options
             base.options = $.extend({},$.InFieldLabels.defaultOptions, options);
-            
             base.$label.css('position','absolute');
-            var fieldPosition = base.$field.position();
+
             base.$label.css({
-                'left' : fieldPosition.left,
-                'top' : fieldPosition.top
+                'left' : base.options.labelPosition.left,
+                'top' : base.options.labelPosition.top
             }).addClass(base.options.labelClass);
 
 			// Check if the field is already filled in
@@ -118,7 +118,8 @@
     $.InFieldLabels.defaultOptions = {
         fadeOpacity: 0.5, // Once a field has focus, how transparent should the label be
 		fadeDuration: 300, // How long should it take to animate from 1.0 opacity to the fadeOpacity
-		labelClass: 'infield' // Class to be applied to label when positioned over form field
+		labelClass: 'infield', // Class to be applied to label when positioned over form field
+        labelPosition: {'left' : 0, 'top' : 0} // absolute position of label tag
     };
 	
 
@@ -129,15 +130,26 @@
 			// of the input or textarea element
 			var for_attr = $(this).attr('for');
 			if( !for_attr ) return; // Nothing to attach, since the for field wasn't used
-			
-			
+
 			// Find the referenced input or textarea element
 			var $field = $(
 				"input#" + for_attr + "[type='text']," + 
-				"input#" + for_attr + "[type='password']," + 
-				"textarea#" + for_attr
-				);
-				
+                "input#" + for_attr + "[type='password']," +
+                "input#" + for_attr + "[type='datetime']," +
+                "input#" + for_attr + "[type='datetime-local']," +
+                "input#" + for_attr + "[type='date']," +
+                "input#" + for_attr + "[type='month']," +
+                "input#" + for_attr + "[type='time']," +
+                "input#" + for_attr + "[type='week']," +
+                "input#" + for_attr + "[type='number']," +
+                "input#" + for_attr + "[type='email']," +
+                "input#" + for_attr + "[type='url']," +
+                "input#" + for_attr + "[type='search']," +
+                "input#" + for_attr + "[type='tel']," +
+                "input#" + for_attr + "[type='color']," +
+                "textarea#" + for_attr
+			);
+
 			if( $field.length == 0) return; // Again, nothing to attach
 			
 			// Only create object for input[text], input[password], or textarea

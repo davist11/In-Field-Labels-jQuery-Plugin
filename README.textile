@@ -3,12 +3,17 @@ h1. In-Field Labels jQuery Plugin
 *License:* "Same as jQuery (Dual GPL + MIT)":http://docs.jquery.com/License
 
 *Author:* "Doug Neiner":http://pixelgraphics.us/company
+*Modified By:* "Brandon Taylor":http://btaylorweb.com/
 
 *Size:* Under 1KB Minified and gzipped
 
 h2. Overview
 
 This is a simple plugin that turns properly formatted HTML forms into forms with in-field label support. Labels fade when the field is focussed and disappear when text entry begins. Clearing a field and leaving brings back the label.
+
+This fork adds:
+An object parameter to position the label: <code>{ position : {'left' : 0, 'top' : 0} }</code>
+More HTML5 selectors instead of just <code>type["text"]</code> and <code>textarea</code>. See "src/jquery.infieldlabel.js":https://github.com/btaylordesign/In-Field-Labels-jQuery-Plugin/blob/master/src/jquery.infieldlabel.js for a list of supported input types.
 
 h2. Browser Support
 
@@ -50,7 +55,7 @@ $(document).ready(function(){
 
 h2. Options
 
-Two options can be passed along with the method or set ahead of time for all inFieldLabel controls.
+Four options can be passed along with the method or set ahead of time for all inFieldLabel controls.
 
 To set them ahead of time, use the following syntax:
 
@@ -68,3 +73,6 @@ When an animation occurs, it uses this setting to determine duration. Defaults t
 
 *<code>labelClass:</code> String to be used as class*
 Class to be applied to the label when it is positioned over form field. Defaults to infield
+
+*<code>labelPosition:</code> Object to position label within field. Defaults to {position : {'left' : 0, 'top' : 0}}*
+Absolute position to be applied to the label as an inline style.
