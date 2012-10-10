@@ -43,6 +43,9 @@
 				base.showing = false;
 			};
 			
+			// Occasionally check to see if the field was autofilled by the browser (Chrome is the worst offender)
+      setInterval(base.checkForAutofill, 200);
+      
 			base.$field.focus(function(){
 				base.fadeOnFocus();
 			}).blur(function(){
@@ -70,6 +73,18 @@
 		base.setOpacity = function(opacity){
 			base.$label.stop().animate({ opacity: opacity }, base.options.fadeDuration);
 			base.showing = (opacity > 0.0);
+		};
+		
+		// See if the field already has
+		// a value. Make sure the label is hidden
+		base.checkForAutofill = function () {
+		    if (base.$field.val() != "") {
+		      base.$label.css({
+		          opacity: 0.0
+		      }).show();
+		    } else if(!base.$field.is(":focus")) {
+		      base.setOpacity(1.0);
+		    }
 		};
 		
 		// Checks for empty as a fail safe
@@ -134,13 +149,17 @@
 			// Find the referenced input or textarea element
 			var $field = $(
 				"input#" + for_attr + "[type='text']," + 
-				"input#" + for_attr + "[type='password']," + 
+				"input#" + for_attr + "[type='email']," + 
+				"input#" + for_attr + "[type='numeric']," +  
+				"input#" + for_attr + "[type='url']," + 
+				"input#" + for_attr + "[type='color']," + 
+				"input#" + for_attr + "[type='password']," +
 				"textarea#" + for_attr
 				);
 				
 			if( $field.length == 0) return; // Again, nothing to attach
 			
-			// Only create object for input[text], input[password], or textarea
+			// Only create object for input[text] type fields (including HTML5 types), or textarea
             (new $.InFieldLabels(this, $field[0], options));
         });
     };
