@@ -40,6 +40,12 @@ form p { position:relative }
 label  { position:absolute; top:0; left:0}
 </pre>
 
+You can change the final position of the floating label element by setting its styles.
+
+<pre>
+label  { top:2px; left:15px}
+</pre>
+
 h3. Javascript
 
 <pre>
