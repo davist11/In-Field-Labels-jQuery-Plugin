@@ -7,7 +7,8 @@
  * Uses the same license as jQuery, see:
  * http://docs.jquery.com/License
  *
- * @version 0.1
+ * Editted Jose Antonio Reyna Fuentes
+ * @version 0.2
  */
 (function($){
 	
@@ -31,10 +32,11 @@
             base.options = $.extend({},$.InFieldLabels.defaultOptions, options);
             
             base.$label.css('position','absolute');
-            var fieldPosition = base.$field.position();
+            var fieldPosition = base.$field.position(),
+                labelPosition = base.$label.position();
             base.$label.css({
-                'left' : fieldPosition.left,
-                'top' : fieldPosition.top
+                'left' : fieldPosition.left + labelPosition.left,
+                'top' : fieldPosition.top + labelPosition.top
             }).addClass(base.options.labelClass);
 
 			// Check if the field is already filled in
@@ -135,6 +137,17 @@
 			var $field = $(
 				"input#" + for_attr + "[type='text']," + 
 				"input#" + for_attr + "[type='password']," + 
+                "input#" + for_attr + "[type='email']," + 
+                "input#" + for_attr + "[type='tel']," + 
+                "input#" + for_attr + "[type='number']," + 
+                "input#" + for_attr + "[type='url']," + 
+                "input#" + for_attr + "[type='search']," + 
+                "input#" + for_attr + "[type='date']," + 
+                "input#" + for_attr + "[type='time']," + 
+                "input#" + for_attr + "[type='datetime']," + 
+                "input#" + for_attr + "[type='month']," + 
+                "input#" + for_attr + "[type='week']," + 
+                "input#" + for_attr + "[type='color']," + 
 				"textarea#" + for_attr
 				);
 				
