@@ -55,6 +55,10 @@
 				base.checkForEmpty();
 			}).bind('onPropertyChange', function(){
 				base.checkForEmpty();
+			}).bind('keyup.infieldlabel', function() {
+			 	// Use of a namespace (.infieldlabel) allows us to
+				// unbind just this method later
+			    base.checkForEmpty();
 			});
         };
 
@@ -93,6 +97,11 @@
 				base.$field.bind('keydown.infieldlabel',function(e){
 					base.hideOnChange(e);
 				});
+
+				// Reattach the keyup event
+                                base.$field.bind('keyup.infieldlabel',function(){
+                                        base.checkForEmpty();
+				});
 			};
 		};
 
@@ -107,8 +116,9 @@
 				base.showing = false;
 			};
 			
-			// Remove keydown event to save on CPU processing
+			// Remove keydown and keyup events to save on CPU processing
 			base.$field.unbind('keydown.infieldlabel');
+			base.$field.unbind('keyup');
 		};
       
 		// Run the initialization method
